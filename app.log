@@ -158,3 +158,174 @@ Successfully processed and saved 186 new MVHM images.
 2025-08-14 20:35:46,491 - INFO - EarlyStopping counter: 10 out of 10
 2025-08-14 20:35:46,491 - INFO - Early stopping triggered.
 2025-08-14 20:35:46,491 - INFO - --- Training Finished ---
+2025-08-14 21:27:30 [INFO    ] --- Starting Offline Data Preprocessing ---
+2025-08-14 21:27:30 [INFO    ] Found 139 unique real videos and 150 unique fake videos.
+2025-08-14 21:27:30 [INFO    ] Skipping 0 already processed videos. Processing 289 new videos.
+2025-08-14 21:29:21 [WARNING ] Segment skipped: only 50/75 frames had a detectable face.
+2025-08-14 21:29:48 [WARNING ] Segment skipped: only 37/75 frames had a detectable face.
+2025-08-14 21:30:34 [WARNING ] Segment skipped: only 56/75 frames had a detectable face.
+2025-08-14 21:30:44 [INFO    ] --- Preprocessing Complete --- 
+Successfully processed and saved 286 new MVHM images.
+2025-08-14 21:30:50 [INFO    ] --- Starting Model Training on cuda ---
+2025-08-14 21:30:50 [INFO    ] Dataset: 228 training samples, 58 validation samples.
+2025-08-14 21:30:52 [INFO    ] Class weights: Real=108, Fake=120. Using pos_weight: 0.90
+2025-08-14 21:54:39 [INFO    ] --- Starting Model Training on cuda ---
+2025-08-14 21:54:39 [INFO    ] Dataset: 228 training samples, 58 validation samples.
+2025-08-14 21:54:41 [INFO    ] Class weights: Real=108, Fake=120. Using pos_weight: 0.90
+2025-08-14 21:54:45 [INFO    ] Epoch 1 Summary | Train Loss: 0.6817 | Val Loss: 0.6571 | Val Acc: 0.4483
+2025-08-14 21:54:45 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_1.png
+2025-08-14 21:54:46 [INFO    ] New best model found! Val Acc: 0.4483. Saving to models/best_deepfake_detector.pth
+2025-08-14 21:54:50 [INFO    ] Epoch 2 Summary | Train Loss: 0.6602 | Val Loss: 0.6609 | Val Acc: 0.4828
+2025-08-14 21:54:50 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_2.png
+2025-08-14 21:54:51 [INFO    ] New best model found! Val Acc: 0.4828. Saving to models/best_deepfake_detector.pth
+2025-08-14 21:54:55 [INFO    ] Epoch 3 Summary | Train Loss: 0.6616 | Val Loss: 0.6613 | Val Acc: 0.4483
+2025-08-14 21:54:55 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_3.png
+2025-08-14 21:54:56 [INFO    ] [EarlyStopping] Counter: 1/10
+2025-08-14 21:55:00 [INFO    ] Epoch 4 Summary | Train Loss: 0.6685 | Val Loss: 0.6639 | Val Acc: 0.4655
+2025-08-14 21:55:00 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_4.png
+2025-08-14 21:55:01 [INFO    ] [EarlyStopping] Counter: 2/10
+2025-08-14 21:55:04 [INFO    ] Epoch 5 Summary | Train Loss: 0.6524 | Val Loss: 0.6735 | Val Acc: 0.5000
+2025-08-14 21:55:04 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_5.png
+2025-08-14 21:55:05 [INFO    ] New best model found! Val Acc: 0.5000. Saving to models/best_deepfake_detector.pth
+2025-08-14 21:55:09 [INFO    ] Epoch 6 Summary | Train Loss: 0.6594 | Val Loss: 0.6595 | Val Acc: 0.5690
+2025-08-14 21:55:10 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_6.png
+2025-08-14 21:55:11 [INFO    ] New best model found! Val Acc: 0.5690. Saving to models/best_deepfake_detector.pth
+2025-08-14 21:55:15 [INFO    ] Epoch 7 Summary | Train Loss: 0.6547 | Val Loss: 0.6859 | Val Acc: 0.5345
+2025-08-14 21:55:15 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_7.png
+2025-08-14 21:55:16 [INFO    ] [EarlyStopping] Counter: 1/10
+2025-08-14 21:55:19 [INFO    ] Epoch 8 Summary | Train Loss: 0.6411 | Val Loss: 0.6823 | Val Acc: 0.5000
+2025-08-14 21:55:19 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_8.png
+2025-08-14 21:55:20 [INFO    ] [EarlyStopping] Counter: 2/10
+2025-08-14 21:55:24 [INFO    ] Epoch 9 Summary | Train Loss: 0.6389 | Val Loss: 0.6888 | Val Acc: 0.5172
+2025-08-14 21:55:24 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_9.png
+2025-08-14 21:55:25 [INFO    ] [EarlyStopping] Counter: 3/10
+2025-08-14 21:55:28 [INFO    ] Epoch 10 Summary | Train Loss: 0.6279 | Val Loss: 0.7521 | Val Acc: 0.5172
+2025-08-14 21:55:28 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_10.png
+2025-08-14 21:55:28 [INFO    ] Learning rate reduced to 6.0e-06
+2025-08-14 21:55:29 [INFO    ] [EarlyStopping] Counter: 4/10
+2025-08-14 21:55:33 [INFO    ] Epoch 11 Summary | Train Loss: 0.6074 | Val Loss: 0.7279 | Val Acc: 0.5172
+2025-08-14 21:55:33 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_11.png
+2025-08-14 21:55:34 [INFO    ] [EarlyStopping] Counter: 5/10
+2025-08-14 21:55:38 [INFO    ] Epoch 12 Summary | Train Loss: 0.5833 | Val Loss: 0.7492 | Val Acc: 0.5690
+2025-08-14 21:55:38 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_12.png
+2025-08-14 21:55:39 [INFO    ] [EarlyStopping] Counter: 6/10
+2025-08-14 21:55:42 [INFO    ] Epoch 13 Summary | Train Loss: 0.6316 | Val Loss: 0.7473 | Val Acc: 0.5517
+2025-08-14 21:55:43 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_13.png
+2025-08-14 21:55:44 [INFO    ] [EarlyStopping] Counter: 7/10
+2025-08-14 21:55:47 [INFO    ] Epoch 14 Summary | Train Loss: 0.6040 | Val Loss: 0.7552 | Val Acc: 0.5345
+2025-08-14 21:55:47 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_14.png
+2025-08-14 21:55:47 [INFO    ] Learning rate reduced to 1.2e-06
+2025-08-14 21:55:48 [INFO    ] [EarlyStopping] Counter: 8/10
+2025-08-14 21:55:52 [INFO    ] Epoch 15 Summary | Train Loss: 0.6040 | Val Loss: 0.7523 | Val Acc: 0.5517
+2025-08-14 21:55:52 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_15.png
+2025-08-14 21:55:53 [INFO    ] [EarlyStopping] Counter: 9/10
+2025-08-14 21:55:56 [INFO    ] Epoch 16 Summary | Train Loss: 0.5805 | Val Loss: 0.7526 | Val Acc: 0.5345
+2025-08-14 21:55:57 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_16.png
+2025-08-14 21:55:58 [INFO    ] [EarlyStopping] Counter: 10/10
+2025-08-14 21:55:58 [INFO    ] [EarlyStopping] Triggered. Ending training.
+2025-08-14 21:55:58 [INFO    ] --- Training Finished ---
+2025-08-14 22:23:00 [INFO    ] --- Starting Model Training on cuda ---
+2025-08-14 22:23:00 [INFO    ] Dataset: 228 training samples, 58 validation samples.
+2025-08-14 22:23:01 [INFO    ] --- Stage 1: Training Classifier Head ---
+2025-08-14 22:23:01 [INFO    ] Class weights: Real=108, Fake=120. Using pos_weight: 0.90
+2025-08-14 22:35:53 [INFO    ] --- Starting Model Training on cuda ---
+2025-08-14 22:35:53 [INFO    ] Dataset: 228 training samples, 58 validation samples.
+2025-08-14 22:35:54 [INFO    ] --- Stage 1: Training Classifier Head ---
+2025-08-14 22:35:54 [INFO    ] Class weights: Real=108, Fake=120. Using pos_weight: 0.90
+2025-08-14 22:35:57 [INFO    ] Epoch 1 Summary | Train Loss: 0.6580 | Val Loss: 0.6557 | Val Acc: 0.5690
+2025-08-14 22:35:58 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_1.png
+2025-08-14 22:35:58 [INFO    ] New best model found! Val Acc: 0.5690. Saving to models/best_deepfake_detector.pth
+2025-08-14 22:36:01 [INFO    ] Epoch 2 Summary | Train Loss: 0.6595 | Val Loss: 0.6553 | Val Acc: 0.5517
+2025-08-14 22:36:01 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_2.png
+2025-08-14 22:36:01 [INFO    ] [EarlyStopping] Counter: 1/10
+2025-08-14 22:36:05 [INFO    ] Epoch 3 Summary | Train Loss: 0.6584 | Val Loss: 0.6555 | Val Acc: 0.5172
+2025-08-14 22:36:05 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_3.png
+2025-08-14 22:36:05 [INFO    ] [EarlyStopping] Counter: 2/10
+2025-08-14 22:36:08 [INFO    ] Epoch 4 Summary | Train Loss: 0.6599 | Val Loss: 0.6559 | Val Acc: 0.5172
+2025-08-14 22:36:08 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_4.png
+2025-08-14 22:36:08 [INFO    ] [EarlyStopping] Counter: 3/10
+2025-08-14 22:36:12 [INFO    ] Epoch 5 Summary | Train Loss: 0.6629 | Val Loss: 0.6562 | Val Acc: 0.4828
+2025-08-14 22:36:12 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_5.png
+2025-08-14 22:36:12 [INFO    ] Learning rate reduced to 2.0e-05
+2025-08-14 22:36:12 [INFO    ] [EarlyStopping] Counter: 4/10
+2025-08-14 22:36:12 [INFO    ] --- Stage 2: Unfreezing Backbone for Fine-Tuning ---
+2025-08-14 22:36:20 [INFO    ] Epoch 6 Summary | Train Loss: 0.6606 | Val Loss: 0.6562 | Val Acc: 0.4828
+2025-08-14 22:36:20 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_6.png
+2025-08-14 22:36:20 [INFO    ] [EarlyStopping] Counter: 5/10
+2025-08-14 22:36:27 [INFO    ] Epoch 7 Summary | Train Loss: 0.6580 | Val Loss: 0.6562 | Val Acc: 0.4828
+2025-08-14 22:36:27 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_7.png
+2025-08-14 22:36:27 [INFO    ] [EarlyStopping] Counter: 6/10
+2025-08-14 22:36:35 [INFO    ] Epoch 8 Summary | Train Loss: 0.6574 | Val Loss: 0.6562 | Val Acc: 0.4828
+2025-08-14 22:36:35 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_8.png
+2025-08-14 22:36:35 [INFO    ] [EarlyStopping] Counter: 7/10
+2025-08-14 22:36:44 [INFO    ] Epoch 9 Summary | Train Loss: 0.6633 | Val Loss: 0.6562 | Val Acc: 0.4828
+2025-08-14 22:36:44 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_9.png
+2025-08-14 22:36:44 [INFO    ] [EarlyStopping] Counter: 8/10
+2025-08-14 22:36:53 [INFO    ] Epoch 10 Summary | Train Loss: 0.6565 | Val Loss: 0.6566 | Val Acc: 0.4828
+2025-08-14 22:36:53 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_10.png
+2025-08-14 22:36:53 [INFO    ] Learning rate reduced to 2.0e-07
+2025-08-14 22:36:53 [INFO    ] [EarlyStopping] Counter: 9/10
+2025-08-14 22:37:02 [INFO    ] Epoch 11 Summary | Train Loss: 0.6573 | Val Loss: 0.6566 | Val Acc: 0.4828
+2025-08-14 22:37:02 [INFO    ] Confusion matrix plot saved to outputs/cm_plots/confusion_matrix_epoch_11.png
+2025-08-14 22:37:02 [INFO    ] [EarlyStopping] Counter: 10/10
+2025-08-14 22:37:02 [INFO    ] [EarlyStopping] Triggered. Ending training.
+2025-08-14 22:37:02 [INFO    ] --- Training Finished ---
+2025-08-15 01:54:16 [INFO    ] --- Starting Training on cuda ---
+2025-08-15 01:54:16 [INFO    ] Dataset: 228 training, 58 validation samples.
+2025-08-15 01:54:16 [INFO    ] --- Stage 1: Training Head (5 epochs) ---
+2025-08-15 01:54:20 [INFO    ] Epoch 1 | Train Loss: 2.2154 | Val Loss: 1.0020 | Val Acc: 0.4828
+2025-08-15 01:54:20 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_1.png
+2025-08-15 01:54:22 [INFO    ] Epoch 2 | Train Loss: 1.2890 | Val Loss: 0.7305 | Val Acc: 0.6034
+2025-08-15 01:54:23 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_2.png
+2025-08-15 01:54:25 [INFO    ] Epoch 3 | Train Loss: 1.0092 | Val Loss: 0.8001 | Val Acc: 0.5345
+2025-08-15 01:54:25 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_3.png
+2025-08-15 01:54:28 [INFO    ] Epoch 4 | Train Loss: 0.8691 | Val Loss: 1.1668 | Val Acc: 0.4655
+2025-08-15 01:54:28 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_4.png
+2025-08-15 01:54:31 [INFO    ] Epoch 5 | Train Loss: 0.8386 | Val Loss: 0.8001 | Val Acc: 0.5345
+2025-08-15 01:54:31 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_5.png
+2025-08-15 01:54:31 [INFO    ] --- Stage 2: Fine-Tuning Backbone (last 4 modules) ---
+2025-08-15 01:54:34 [INFO    ] Epoch 6 | Train Loss: 0.8245 | Val Loss: 0.7153 | Val Acc: 0.5517
+2025-08-15 01:54:34 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_6.png
+2025-08-15 01:54:34 [INFO    ] Validation loss improved to 0.7153. Saving best model.
+2025-08-15 01:54:37 [INFO    ] Epoch 7 | Train Loss: 0.8319 | Val Loss: 0.7226 | Val Acc: 0.5345
+2025-08-15 01:54:38 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_7.png
+2025-08-15 01:54:40 [INFO    ] Epoch 8 | Train Loss: 0.7888 | Val Loss: 0.7171 | Val Acc: 0.5517
+2025-08-15 01:54:40 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_8.png
+2025-08-15 01:54:43 [INFO    ] Epoch 9 | Train Loss: 0.7828 | Val Loss: 0.7119 | Val Acc: 0.5517
+2025-08-15 01:54:44 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_9.png
+2025-08-15 01:54:44 [INFO    ] Validation loss improved to 0.7119. Saving best model.
+2025-08-15 01:54:47 [INFO    ] Epoch 10 | Train Loss: 0.7855 | Val Loss: 0.7147 | Val Acc: 0.5517
+2025-08-15 01:54:47 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_10.png
+2025-08-15 01:54:50 [INFO    ] Epoch 11 | Train Loss: 0.6821 | Val Loss: 0.7345 | Val Acc: 0.5690
+2025-08-15 01:54:50 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_11.png
+2025-08-15 01:54:53 [INFO    ] Epoch 12 | Train Loss: 0.7182 | Val Loss: 0.7423 | Val Acc: 0.5690
+2025-08-15 01:54:53 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_12.png
+2025-08-15 01:54:56 [INFO    ] Epoch 13 | Train Loss: 0.6683 | Val Loss: 0.7173 | Val Acc: 0.5517
+2025-08-15 01:54:56 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_13.png
+2025-08-15 01:54:59 [INFO    ] Epoch 14 | Train Loss: 0.6783 | Val Loss: 0.7198 | Val Acc: 0.5517
+2025-08-15 01:54:59 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_14.png
+2025-08-15 01:55:02 [INFO    ] Epoch 15 | Train Loss: 0.6895 | Val Loss: 0.7190 | Val Acc: 0.5517
+2025-08-15 01:55:02 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_15.png
+2025-08-15 01:55:05 [INFO    ] Epoch 16 | Train Loss: 0.6723 | Val Loss: 0.7201 | Val Acc: 0.5517
+2025-08-15 01:55:06 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_16.png
+2025-08-15 01:55:09 [INFO    ] Epoch 17 | Train Loss: 0.6558 | Val Loss: 0.7076 | Val Acc: 0.5690
+2025-08-15 01:55:09 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_17.png
+2025-08-15 01:55:09 [INFO    ] Validation loss improved to 0.7076. Saving best model.
+2025-08-15 01:55:12 [INFO    ] Epoch 18 | Train Loss: 0.6194 | Val Loss: 0.7130 | Val Acc: 0.5862
+2025-08-15 01:55:12 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_18.png
+2025-08-15 01:55:16 [INFO    ] Epoch 19 | Train Loss: 0.6332 | Val Loss: 0.7255 | Val Acc: 0.5517
+2025-08-15 01:55:16 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_19.png
+2025-08-15 01:55:19 [INFO    ] Epoch 20 | Train Loss: 0.6292 | Val Loss: 0.7163 | Val Acc: 0.5690
+2025-08-15 01:55:19 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_20.png
+2025-08-15 01:55:23 [INFO    ] Epoch 21 | Train Loss: 0.6808 | Val Loss: 0.7207 | Val Acc: 0.5690
+2025-08-15 01:55:23 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_21.png
+2025-08-15 01:55:26 [INFO    ] Epoch 22 | Train Loss: 0.6602 | Val Loss: 0.7223 | Val Acc: 0.5690
+2025-08-15 01:55:26 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_22.png
+2025-08-15 01:55:30 [INFO    ] Epoch 23 | Train Loss: 0.6397 | Val Loss: 0.7167 | Val Acc: 0.5690
+2025-08-15 01:55:30 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_23.png
+2025-08-15 01:55:33 [INFO    ] Epoch 24 | Train Loss: 0.6275 | Val Loss: 0.7108 | Val Acc: 0.5862
+2025-08-15 01:55:33 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_24.png
+2025-08-15 01:55:37 [INFO    ] Epoch 25 | Train Loss: 0.6449 | Val Loss: 0.7123 | Val Acc: 0.5862
+2025-08-15 01:55:37 [INFO    ] Confusion matrix plot saved to /home/vishwajit/Workspace/NTRO/rppg-deepfake-detection/outputs/cm_plots/confusion_matrix_epoch_25.png
+2025-08-15 01:55:37 [INFO    ] Early stopping triggered.
+2025-08-15 01:55:37 [INFO    ] --- Training Finished ---

@@ -1,37 +1,32 @@
 # src/config.py
-
 import os
 import torch
 
-# --- DYNAMIC PATH CONFIGURATION ---
-# These paths are relative to the project's root directory.
-# This requires you to always run scripts from the project root.
-BASE_DATA_PATH = "data_subset"
+# --- PATHS ---
+# Robustly define paths relative to this file's location
+SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SRC_DIR)
 
-# --- USER-CONFIGURABLE VIDEO SOURCE DIRECTORIES ---
-REAL_VIDEO_DIRS = [
-    os.path.join(BASE_DATA_PATH, "real"),
-]
-FAKE_VIDEO_DIRS = [
-    os.path.join(BASE_DATA_PATH, "fake"),
-]
+# --- DATA PATHS ---
+DATA_SUBSET_DIR = os.path.join(PROJECT_ROOT, "data_subset")
+PREPROCESSED_DATA_DIR = os.path.join(PROJECT_ROOT, "data_preprocessed")
+REAL_VIDEO_DIRS = [os.path.join(DATA_SUBSET_DIR, "real")]
+FAKE_VIDEO_DIRS = [os.path.join(DATA_SUBSET_DIR, "fake")]
 
-# --- GLOBAL PROJECT CONFIGURATION ---
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-PREPROCESSED_DATA_DIR = "data_preprocessed"
-MODEL_DIR = "models"
-LOG_FILE = "app.log"
-OUTPUT_DIR = "outputs"
+# --- OUTPUT PATHS ---
+MODEL_DIR = os.path.join(PROJECT_ROOT, "models")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "outputs")
+CM_PLOTS_DIR = os.path.join(OUTPUT_DIR, "cm_plots")
+LOG_FILE = os.path.join(PROJECT_ROOT, "app.log")
 
 # --- DLIB MODEL ---
-# This path is now correct relative to the project root.
 DLIB_MODEL_PATH = os.path.join(MODEL_DIR, "shape_predictor_68_face_landmarks.dat")
+DLIB_MODEL_URL = "http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2"
 
-# --- MODEL CHECKPOINT PATHS ---
-BEST_MODEL_SAVE_PATH = os.path.join(MODEL_DIR, "best_deepfake_detector.pth")
-LATEST_MODEL_SAVE_PATH = os.path.join(MODEL_DIR, "latest_checkpoint.pth")
+# --- DEVICE ---
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# --- DATA & PREPROCESSING PARAMETERS ---
+# --- DATA & PREPROCESSING ---
 VIDEO_FPS = 25.0
 VIDEO_DURATION_SECS = 3
 NUM_FRAMES = int(VIDEO_FPS * VIDEO_DURATION_SECS)
@@ -39,18 +34,35 @@ MIN_VALID_FRAMES = 60
 ROI_COUNT = 22
 MVHM_RESOLUTION = (240, 240)
 
-# --- SIGNAL PROCESSING PARAMETERS ---
-LOW_CUTOFF = 0.8
-HIGH_CUTOFF = 3.0
+# --- DATALOADER ---
+IMAGE_EXTS = [".png", ".jpg", ".jpeg"]
+BATCH_SIZE = 16
+NUM_WORKERS = min(os.cpu_count(), 4)
+PIN_MEMORY = DEVICE.type == "cuda"
 
 # --- MODEL & TRAINING HYPERPARAMETERS ---
-BATCH_SIZE = 16
-EPOCHS = 50
-LEARNING_RATE = 1e-5
+# Regularization
 DROPOUT_RATE = 0.5
-TEST_SPLIT_SIZE = 0.2
-EARLY_STOPPING_PATIENCE = 10
+WEIGHT_DECAY = 5e-4       # AdamW is better with weight decay
+LABEL_SMOOTHING = 0.1   # A common, effective value
 
-# --- IMAGE NORMALIZATION (Standard for ImageNet-pretrained models) ---
+# Two-Stage Training
+LEARNING_RATE_HEAD = 5e-4
+LEARNING_RATE_FINETUNE = 1e-5
+FINETUNE_EPOCH = 5
+MAX_EPOCHS = 40
+EARLY_STOPPING_PATIENCE = 8
+# Unfreeze only the last 4 modules of VGG19 (safer)
+UNFREEZE_LAST_N_MODULES = 4
+
+# Augmentation
+USE_AUGMENTATION = True
+AUG_ROTATION_DEGREES = 7
+AUG_H_FLIP_PROB = 0.5
+AUG_COLOR_JITTER = {"brightness": 0.1, "contrast": 0.1, "saturation": 0.1, "hue": 0.05}
+
+# Normalization
 MVHM_MEAN = [0.485, 0.456, 0.406]
 MVHM_STD = [0.229, 0.224, 0.225]
+
+RANDOM_SEED = 42
