@@ -1,0 +1,160 @@
+2025-08-14 20:26:49,209 - INFO - --- Starting Offline Data Preprocessing ---
+2025-08-14 20:26:49,209 - INFO - Found 50 unique real videos and 50 unique fake videos.
+2025-08-14 20:26:49,209 - INFO - Skipping 0 already processed videos. Processing 100 new videos.
+2025-08-14 20:28:18,393 - INFO - --- Preprocessing Complete --- 
+Successfully processed and saved 100 new MVHM images.
+2025-08-14 20:28:25,832 - INFO - --- Starting Model Training on cuda ---
+2025-08-14 20:28:25,841 - INFO - Training on 80 samples, validating on 20 samples.
+2025-08-14 20:28:27,183 - INFO - Class imbalance weights: Real=40, Fake=40. Using pos_weight: 1.00
+2025-08-14 20:30:03,697 - INFO - --- Starting Model Training on cuda ---
+2025-08-14 20:30:03,698 - INFO - Training on 80 samples, validating on 20 samples.
+2025-08-14 20:30:04,897 - INFO - Class imbalance weights: Real=40, Fake=40. Using pos_weight: 1.00
+2025-08-14 20:30:06,906 - INFO - Epoch 1 Summary -> Train Loss: 0.7000 | Val Loss: 0.6885 | Val Acc: 0.5500
+2025-08-14 20:30:06,906 - INFO - Validation Confusion Matrix:
+[[4 6]
+ [3 7]]
+2025-08-14 20:30:07,357 - INFO - New best model found! Val Acc: 0.5500. Saving to models/best_deepfake_detector.pth
+2025-08-14 20:30:08,905 - INFO - Epoch 2 Summary -> Train Loss: 0.6878 | Val Loss: 0.6911 | Val Acc: 0.4500
+2025-08-14 20:30:08,905 - INFO - Validation Confusion Matrix:
+[[8 2]
+ [9 1]]
+2025-08-14 20:30:09,649 - INFO - EarlyStopping counter: 1 out of 10
+2025-08-14 20:30:11,002 - INFO - Epoch 3 Summary -> Train Loss: 0.6874 | Val Loss: 0.6961 | Val Acc: 0.5500
+2025-08-14 20:30:11,003 - INFO - Validation Confusion Matrix:
+[[10  0]
+ [ 9  1]]
+2025-08-14 20:30:11,751 - INFO - EarlyStopping counter: 2 out of 10
+2025-08-14 20:30:13,123 - INFO - Epoch 4 Summary -> Train Loss: 0.6760 | Val Loss: 0.6993 | Val Acc: 0.5500
+2025-08-14 20:30:13,123 - INFO - Validation Confusion Matrix:
+[[10  0]
+ [ 9  1]]
+2025-08-14 20:30:13,788 - INFO - EarlyStopping counter: 3 out of 10
+2025-08-14 20:30:15,121 - INFO - Epoch 5 Summary -> Train Loss: 0.6775 | Val Loss: 0.6975 | Val Acc: 0.5000
+2025-08-14 20:30:15,121 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:15,122 - INFO - Learning rate reduced from 1e-05 to 2.0000000000000003e-06
+2025-08-14 20:30:15,898 - INFO - EarlyStopping counter: 4 out of 10
+2025-08-14 20:30:17,315 - INFO - Epoch 6 Summary -> Train Loss: 0.6743 | Val Loss: 0.6972 | Val Acc: 0.5000
+2025-08-14 20:30:17,315 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:18,012 - INFO - EarlyStopping counter: 5 out of 10
+2025-08-14 20:30:19,387 - INFO - Epoch 7 Summary -> Train Loss: 0.6874 | Val Loss: 0.6978 | Val Acc: 0.5000
+2025-08-14 20:30:19,387 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:20,093 - INFO - EarlyStopping counter: 6 out of 10
+2025-08-14 20:30:21,523 - INFO - Epoch 8 Summary -> Train Loss: 0.6662 | Val Loss: 0.6980 | Val Acc: 0.5000
+2025-08-14 20:30:21,524 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:22,231 - INFO - EarlyStopping counter: 7 out of 10
+2025-08-14 20:30:23,670 - INFO - Epoch 9 Summary -> Train Loss: 0.6674 | Val Loss: 0.6978 | Val Acc: 0.5000
+2025-08-14 20:30:23,671 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:23,671 - INFO - Learning rate reduced from 2.0000000000000003e-06 to 4.000000000000001e-07
+2025-08-14 20:30:24,383 - INFO - EarlyStopping counter: 8 out of 10
+2025-08-14 20:30:25,912 - INFO - Epoch 10 Summary -> Train Loss: 0.6668 | Val Loss: 0.6974 | Val Acc: 0.5000
+2025-08-14 20:30:25,912 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [9 1]]
+2025-08-14 20:30:26,744 - INFO - EarlyStopping counter: 9 out of 10
+2025-08-14 20:30:28,309 - INFO - Epoch 11 Summary -> Train Loss: 0.6993 | Val Loss: 0.6975 | Val Acc: 0.5500
+2025-08-14 20:30:28,309 - INFO - Validation Confusion Matrix:
+[[9 1]
+ [8 2]]
+2025-08-14 20:30:29,052 - INFO - EarlyStopping counter: 10 out of 10
+2025-08-14 20:30:29,052 - INFO - Early stopping triggered.
+2025-08-14 20:30:29,052 - INFO - --- Training Finished ---
+2025-08-14 20:31:41,975 - INFO - --- Starting Offline Data Preprocessing ---
+2025-08-14 20:31:41,975 - INFO - Found 139 unique real videos and 150 unique fake videos.
+2025-08-14 20:31:41,977 - INFO - Skipping 100 already processed videos. Processing 189 new videos.
+2025-08-14 20:32:30,119 - WARNING - Segment skipped: only 37/75 frames had a detectable face.
+2025-08-14 20:32:31,886 - WARNING - Segment skipped: only 56/75 frames had a detectable face.
+2025-08-14 20:33:44,564 - WARNING - Segment skipped: only 50/75 frames had a detectable face.
+2025-08-14 20:34:03,817 - INFO - --- Preprocessing Complete --- 
+Successfully processed and saved 186 new MVHM images.
+2025-08-14 20:34:26,081 - INFO - --- Starting Model Training on cuda ---
+2025-08-14 20:34:26,090 - INFO - Training on 228 samples, validating on 58 samples.
+2025-08-14 20:34:27,339 - INFO - Class imbalance weights: Real=108, Fake=120. Using pos_weight: 0.90
+2025-08-14 20:34:31,195 - INFO - Epoch 1 Summary -> Train Loss: 0.6528 | Val Loss: 0.6585 | Val Acc: 0.4655
+2025-08-14 20:34:31,196 - INFO - Validation Confusion Matrix:
+[[20  8]
+ [23  7]]
+2025-08-14 20:34:31,962 - INFO - New best model found! Val Acc: 0.4655. Saving to models/best_deepfake_detector.pth
+2025-08-14 20:34:35,776 - INFO - Epoch 2 Summary -> Train Loss: 0.6610 | Val Loss: 0.6587 | Val Acc: 0.5000
+2025-08-14 20:34:35,776 - INFO - Validation Confusion Matrix:
+[[ 6 22]
+ [ 7 23]]
+2025-08-14 20:34:36,614 - INFO - New best model found! Val Acc: 0.5000. Saving to models/best_deepfake_detector.pth
+2025-08-14 20:34:40,831 - INFO - Epoch 3 Summary -> Train Loss: 0.6468 | Val Loss: 0.6579 | Val Acc: 0.4310
+2025-08-14 20:34:40,831 - INFO - Validation Confusion Matrix:
+[[23  5]
+ [28  2]]
+2025-08-14 20:34:41,720 - INFO - EarlyStopping counter: 1 out of 10
+2025-08-14 20:34:45,804 - INFO - Epoch 4 Summary -> Train Loss: 0.6387 | Val Loss: 0.6592 | Val Acc: 0.4655
+2025-08-14 20:34:45,804 - INFO - Validation Confusion Matrix:
+[[26  2]
+ [29  1]]
+2025-08-14 20:34:46,710 - INFO - EarlyStopping counter: 2 out of 10
+2025-08-14 20:34:50,875 - INFO - Epoch 5 Summary -> Train Loss: 0.6586 | Val Loss: 0.6579 | Val Acc: 0.5517
+2025-08-14 20:34:50,875 - INFO - Validation Confusion Matrix:
+[[18 10]
+ [16 14]]
+2025-08-14 20:34:51,602 - INFO - New best model found! Val Acc: 0.5517. Saving to models/best_deepfake_detector.pth
+2025-08-14 20:34:56,131 - INFO - Epoch 6 Summary -> Train Loss: 0.6562 | Val Loss: 0.6605 | Val Acc: 0.4655
+2025-08-14 20:34:56,132 - INFO - Validation Confusion Matrix:
+[[24  4]
+ [27  3]]
+2025-08-14 20:34:57,078 - INFO - EarlyStopping counter: 1 out of 10
+2025-08-14 20:35:01,266 - INFO - Epoch 7 Summary -> Train Loss: 0.6525 | Val Loss: 0.6591 | Val Acc: 0.4655
+2025-08-14 20:35:01,266 - INFO - Validation Confusion Matrix:
+[[12 16]
+ [15 15]]
+2025-08-14 20:35:02,053 - INFO - EarlyStopping counter: 2 out of 10
+2025-08-14 20:35:06,253 - INFO - Epoch 8 Summary -> Train Loss: 0.6530 | Val Loss: 0.6587 | Val Acc: 0.5172
+2025-08-14 20:35:06,253 - INFO - Validation Confusion Matrix:
+[[11 17]
+ [11 19]]
+2025-08-14 20:35:07,039 - INFO - EarlyStopping counter: 3 out of 10
+2025-08-14 20:35:11,260 - INFO - Epoch 9 Summary -> Train Loss: 0.6644 | Val Loss: 0.6613 | Val Acc: 0.4138
+2025-08-14 20:35:11,260 - INFO - Validation Confusion Matrix:
+[[18 10]
+ [24  6]]
+2025-08-14 20:35:11,261 - INFO - Learning rate reduced from 1e-05 to 2.0000000000000003e-06
+2025-08-14 20:35:12,028 - INFO - EarlyStopping counter: 4 out of 10
+2025-08-14 20:35:16,339 - INFO - Epoch 10 Summary -> Train Loss: 0.6519 | Val Loss: 0.6606 | Val Acc: 0.4655
+2025-08-14 20:35:16,340 - INFO - Validation Confusion Matrix:
+[[13 15]
+ [16 14]]
+2025-08-14 20:35:17,368 - INFO - EarlyStopping counter: 5 out of 10
+2025-08-14 20:35:21,674 - INFO - Epoch 11 Summary -> Train Loss: 0.6496 | Val Loss: 0.6613 | Val Acc: 0.4483
+2025-08-14 20:35:21,674 - INFO - Validation Confusion Matrix:
+[[18 10]
+ [22  8]]
+2025-08-14 20:35:22,436 - INFO - EarlyStopping counter: 6 out of 10
+2025-08-14 20:35:27,187 - INFO - Epoch 12 Summary -> Train Loss: 0.6378 | Val Loss: 0.6635 | Val Acc: 0.4483
+2025-08-14 20:35:27,187 - INFO - Validation Confusion Matrix:
+[[20  8]
+ [24  6]]
+2025-08-14 20:35:28,248 - INFO - EarlyStopping counter: 7 out of 10
+2025-08-14 20:35:33,312 - INFO - Epoch 13 Summary -> Train Loss: 0.6457 | Val Loss: 0.6655 | Val Acc: 0.4655
+2025-08-14 20:35:33,313 - INFO - Validation Confusion Matrix:
+[[20  8]
+ [23  7]]
+2025-08-14 20:35:33,313 - INFO - Learning rate reduced from 2.0000000000000003e-06 to 4.000000000000001e-07
+2025-08-14 20:35:34,087 - INFO - EarlyStopping counter: 8 out of 10
+2025-08-14 20:35:39,366 - INFO - Epoch 14 Summary -> Train Loss: 0.6360 | Val Loss: 0.6648 | Val Acc: 0.4828
+2025-08-14 20:35:39,367 - INFO - Validation Confusion Matrix:
+[[21  7]
+ [23  7]]
+2025-08-14 20:35:40,319 - INFO - EarlyStopping counter: 9 out of 10
+2025-08-14 20:35:45,713 - INFO - Epoch 15 Summary -> Train Loss: 0.6325 | Val Loss: 0.6639 | Val Acc: 0.4828
+2025-08-14 20:35:45,714 - INFO - Validation Confusion Matrix:
+[[21  7]
+ [23  7]]
+2025-08-14 20:35:46,491 - INFO - EarlyStopping counter: 10 out of 10
+2025-08-14 20:35:46,491 - INFO - Early stopping triggered.
+2025-08-14 20:35:46,491 - INFO - --- Training Finished ---
