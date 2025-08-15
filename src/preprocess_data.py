@@ -1,16 +1,16 @@
 # src/preprocess_data.py
-
 import os
 import cv2
 from tqdm import tqdm
 import logging
 import random
 import concurrent.futures
+from typing import List, Tuple
 
-from src.processor import video_to_mvhm_from_frames  # noqa: E402
-from src import config  # noqa: E402
+from src.processor import video_to_mvhm_from_frames
+from src import config
 
-def collect_videos_from_dirs(list_of_dirs):
+def collect_videos_from_dirs(list_of_dirs: List[str]) -> List[str]:
     """Walks through directories to collect all unique video files."""
     video_files = set()
     VIDEO_EXTENSIONS = ('.mp4', '.avi', '.mov', '.mkv')
@@ -24,77 +24,75 @@ def collect_videos_from_dirs(list_of_dirs):
                     video_files.add(os.path.join(dirpath, filename))
     return list(video_files)
 
-def process_and_save_worker(task_args):
+def process_and_save_worker(task_args: Tuple[str, str, str]) -> int:
     """
-    A single unit of work for a process pool. It opens a video, extracts the
-    first 3-second segment, processes it into an MVHM, and saves it.
+    Worker function to process one video and save the resulting MVHM image.
+    Returns 1 if saved, 0 otherwise.
     """
-    video_path, output_path = task_args
+    video_path, label, output_dir = task_args
+    base_video_name = os.path.splitext(os.path.basename(video_path))[0]
+    output_filename = f"{label}_{base_video_name}.png"
+    output_path = os.path.join(output_dir, output_filename)
+
+    # Skip if this video has already been processed
+    if os.path.exists(output_path):
+        return 0
+
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         logging.error(f"Could not open video: {video_path}")
-        return False
-
-    frames = []
-    fps = cap.get(cv2.CAP_PROP_FPS) or config.VIDEO_FPS
-    # Read just enough frames for one segment
-    for _ in range(config.NUM_FRAMES):
+        return 0
+    
+    frames_buffer = []
+    while True:
         ret, frame = cap.read()
         if not ret:
             break
-        # Optional: resize frame here if videos are very high-res to speed up face detection
-        frames.append(frame)
+        frames_buffer.append(frame)
     cap.release()
 
-    if len(frames) < config.MIN_VALID_FRAMES:
-        logging.warning(f"Skipping {os.path.basename(video_path)}: not enough frames ({len(frames)}).")
-        return False
+    if not frames_buffer:
+        return 0
 
-    # This function now returns a dictionary
-    processed_data = video_to_mvhm_from_frames(frames)
+    processed_data = video_to_mvhm_from_frames(frames_buffer)
     if processed_data and 'mvhm_image' in processed_data:
         cv2.imwrite(output_path, processed_data['mvhm_image'])
-        return True
-    return False
+        return 1
+    
+    return 0
 
 def run_preprocessing():
-    """Processes videos in parallel, intelligently skipping already processed files."""
-    logging.info("--- Starting Offline Data Preprocessing ---")
+    """
+    Processes all videos in parallel, generating and saving one MVHM image for each.
+    """
+    logging.info("--- Starting Full Video Preprocessing (One MVHM per Video) ---")
 
     real_files = collect_videos_from_dirs(config.REAL_VIDEO_DIRS)
     fake_files = collect_videos_from_dirs(config.FAKE_VIDEO_DIRS)
 
     if not real_files and not fake_files:
-        logging.error("No video files found in the directories specified in config.py. Aborting.")
+        logging.error("No video files found in the specified directories. Aborting.")
         return
+        
+    logging.info(f"Found {len(real_files)} real videos and {len(fake_files)} fake videos.")
+    
+    tasks = []
+    for label, files in [("real", real_files), ("fake", fake_files)]:
+        output_dir = os.path.join(config.PREPROCESSED_DATA_DIR, label)
+        os.makedirs(output_dir, exist_ok=True)
+        for video_path in files:
+            tasks.append((video_path, label, output_dir))
+    
+    random.shuffle(tasks)
 
-    logging.info(f"Found {len(real_files)} unique real videos and {len(fake_files)} unique fake videos.")
-    all_videos = [('real', path) for path in real_files] + [('fake', path) for path in fake_files]
-    random.shuffle(all_videos)
-
-    real_output_dir = os.path.join(config.PREPROCESSED_DATA_DIR, 'real')
-    fake_output_dir = os.path.join(config.PREPROCESSED_DATA_DIR, 'fake')
-    os.makedirs(real_output_dir, exist_ok=True)
-    os.makedirs(fake_output_dir, exist_ok=True)
-
-    tasks_to_run = []
-    for label, video_path in all_videos:
-        video_id = os.path.splitext(os.path.basename(video_path))[0]
-        output_filename = f"{label}_{video_id}.png"
-        output_path = os.path.join(config.PREPROCESSED_DATA_DIR, label, output_filename)
-
-        if not os.path.exists(output_path):
-            tasks_to_run.append((video_path, output_path))
-
-    if not tasks_to_run:
-        logging.info("All videos have already been preprocessed. Nothing to do.")
-        return
-
-    logging.info(f"Skipping {len(all_videos) - len(tasks_to_run)} already processed videos. Processing {len(tasks_to_run)} new videos.")
-    num_processed = 0
-    max_workers = max(1, os.cpu_count() - 2)
+    logging.info(f"Starting processing for {len(tasks)} videos.")
+    total_saved = 0
+    # Use fewer workers if CPU count is high to avoid memory issues with full video processing
+    max_workers = min(os.cpu_count(), 8)
+    
     with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
-        results = list(tqdm(executor.map(process_and_save_worker, tasks_to_run), total=len(tasks_to_run), desc="Preprocessing Videos"))
-        num_processed = sum(results)
+        results = list(tqdm(executor.map(process_and_save_worker, tasks), total=len(tasks), desc="Processing Videos"))
+        total_saved = sum(results)
 
-    logging.info(f"--- Preprocessing Complete --- \nSuccessfully processed and saved {num_processed} new MVHM images.")
+    logging.info(f"--- Preprocessing Complete ---")
+    logging.info(f"Successfully processed and saved {total_saved} new MVHM images.")
